@@ -1,42 +1,26 @@
-import React, { useEffect } from 'react'
-import ItemDetail from './ItemDetail';
-const pedirItemPorID = (id) => {
-    return new Promise((resolve, reject)=>
-    {
-        
-        const item = data.find((el) => el.id === id);
+import { useEffect, useState } from "react"
+import { ItemDetail } from "./ItemDetail"
+import { mFetch } from "../assets/mockFetch"
+import { useParams } from "react-router-dom"
 
-        if (item) {
-            resolve(item);
-        } else {
-            reject({
-                error: "Producto inexistente :("
-            })
-        }
+export const ItemDetailContainer = () => {
+    const [product, setProduct] = useState({})
+    const { id } = useParams()
 
-    })
-}
+    useEffect(()=>{
+        mFetch(Number(id))
+        .then(product => setProduct(product))
+        .catch(err => console.log(err))
+        //.finally(set loading)
+    },[])
 
 
 
-const ItemDetailContainer = ({itemID}) => {
-    const[item, setItem] = useState(null); 
-
-    useEffect(() => {
-      pedirItemPorID(itemID)
-      .then((res)=> {
-        setItem(res);
-      })
-    }, [itemID])
-    
-
-    return (
-        <div>
-            {item &&
-            <ItemDetail item={item} />
-            }
-        </div>
-    )
+  return (
+    <div>
+        <ItemDetail product={product}/>
+    </div>
+  )
 }
 
 export default ItemDetailContainer
