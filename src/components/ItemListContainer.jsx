@@ -24,7 +24,7 @@ const ItemlistContainer = () => {
     obtenerEventos();
   }, [])
 
-  // Función para renderizar una tarjeta de evento
+
 
 return (
 

@@ -11,7 +11,6 @@ export const ItemDetailContainer = () => {
         mFetch(Number(id))
         .then(product => setProduct(product))
         .catch(err => console.log(err))
-        //.finally(set loading)
     },[])
 
 
