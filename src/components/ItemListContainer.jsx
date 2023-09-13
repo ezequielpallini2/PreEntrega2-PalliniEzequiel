@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ItemList from './ItemList';
 
 const ItemlistContainer = () => {
   const [eventos, setEventos] = useState([]);
@@ -20,46 +21,17 @@ const ItemlistContainer = () => {
     };
 
     obtenerEventos();
-  }, []);
+  }, [])
 
   // Función para renderizar una tarjeta de evento
-  const renderEventCard = (evento) => {
-    if (evento.stock > 0) {
-      return (
-        <div className="card" style={{ width: '18rem' }} key={evento.id}>
-          <img src={evento.imagen} className="card-img-top" alt={evento.description} />
-          <div className="card-body">
-            <h5 className="card-title">Primavera 2023</h5>
-            <p className="card-text">{evento.description}</p>
-            <p className="card-text">${evento.price}</p>
-            <p className="card-text">¡Quedan solo {evento.stock} entradas! </p>
-            <a href="checkout.html" className="btn btn-primary" id={evento.id}>
-              Comprar
-            </a>
-          </div>
-        </div>
-      );
-    } else {
-      return (
-        <div className="card" style={{ width: '18rem' }} key={evento.id}>
-          <img src={evento.imagen} className="card-img-top" alt={evento.description} />
-          <div className="card-body">
-            <h5 className="card-title">Primavera 2023</h5>
-            <p className="card-text">{evento.description}</p>
-            <p className="card-text">${evento.price}</p>
-            <p className="card-text">¡El evento está agotado!</p>
-          </div>
-        </div>
-      );
-    }
-  };
 
-  return (
-    <div className="container">
-      {eventos.map((evento) => renderEventCard(evento))}
-      //manejar la lógica para cuando maneje el stock
-    </div>
-  );
-};
+return (
 
+  <div>
+    <ItemList eventos = {eventos} /> 
+  </div>
+
+ 
+  )
+}
 export default ItemlistContainer;
