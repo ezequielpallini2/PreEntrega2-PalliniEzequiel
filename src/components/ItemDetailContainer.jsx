@@ -4,12 +4,12 @@ import { mFetch } from "../assets/mockFetch"
 import { useParams } from "react-router-dom"
 
 export const ItemDetailContainer = () => {
-    const [product, setProduct] = useState({})
+    const [evento, setevento] = useState({})
     const { id } = useParams()
 
     useEffect(()=>{
         mFetch(Number(id))
-        .then(product => setProduct(product))
+        .then(evento => setevento(evento))
         .catch(err => console.log(err))
     },[])
 
@@ -17,7 +17,7 @@ export const ItemDetailContainer = () => {
 
   return (
     <div>
-        <ItemDetail product={product}/>
+        <ItemDetail evento={evento}/>
     </div>
   )
 }

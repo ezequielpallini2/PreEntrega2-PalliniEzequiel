@@ -4,7 +4,7 @@ import ItemList from './ItemList';
 const ItemlistContainer = () => {
   const [eventos, setEventos] = useState([]);
   const URL_DATA = 'https://64cd129fbb31a268409a5658.mockapi.io/Eventos';
-   (URL_DATA)
+   
 
   useEffect(() => {
     const obtenerEventos = async () => {

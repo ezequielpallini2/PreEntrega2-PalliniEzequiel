@@ -22,4 +22,4 @@ export const ItemDetail = ({ evento }) => {
 </div>
     )
 }
-    
+export default ItemDetail    

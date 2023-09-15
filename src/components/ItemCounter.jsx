@@ -21,12 +21,12 @@ const ItemCounter = ({ initial, stock, onAdd}) => {
   return (
     <center>
         <h2>Contador</h2>
-        <button onClick={handleAdd}> +1 </button>
+        <button onClick={handleSub}> -1 </button>
         <label>
             <strong> { counter } </strong>
         </label>
-        <button onClick={handleSub}> -1 </button>
-        <button onClick={handleOnAdd}>Agregar al carrito</button>
+        <button onClick={handleAdd}> +1 </button>
+        <button onClick={handleOnAdd}>Seleccionar cantidad</button>
     </center>
   )
 }

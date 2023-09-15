@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export const Item = ({evento}) => {
   return (
@@ -7,7 +8,9 @@ export const Item = ({evento}) => {
                 <div className="card-body">
                     <h5 className="card-title">Primavera 2023</h5>
                     <p className="card-text">{evento.description}</p>
-                    <a href={`/item/${evento.id}`} className="ver-mas" id="{evento.id}">Ver detalles</a>
+                    <Link to={`/Item/${evento.id}`}>
+                    <a className="ver-mas" id="{evento.id}">Ver detalles</a>
+                    </Link>
                     <a>   </a>
                     <a href="checkout.html" className="btn btn-primary" id="{evento.id}">Comprar</a>
                 </div>
