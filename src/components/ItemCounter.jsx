@@ -20,7 +20,7 @@ const ItemCounter = ({ initial, stock, onAdd}) => {
 
   return (
     <center>
-        <h2>Contador</h2>
+        
         <button onClick={handleSub}> -1 </button>
         <label>
             <strong> { counter } </strong>

@@ -6,7 +6,7 @@ export const ItemDetail = ({ evento }) => {
     }
     return (
       <div className="card" style={{width: 18 + 'em'}}>
-      <img src={"../img/" + evento.imagen} className="card-img-top" alt={evento.description}/>
+      <img src={"../../" + evento.imagen} className="card-img-top" alt={evento.description}/>
       <div className="card-body">
           <h5 className="card-title">Primavera 2023</h5>
           <p className="card-text">{evento.description}</p>
