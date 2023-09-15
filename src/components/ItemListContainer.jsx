@@ -28,7 +28,7 @@ const ItemlistContainer = () => {
 
 return (
 
-  <div>
+  <div className="container" id="container">
     <ItemList eventos = {eventos} /> 
   </div>
 

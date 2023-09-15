@@ -1,0 +1,14 @@
+.container {
+    padding: 2%;
+    gap: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.centrar-div {
+    text-align: center;
+    padding: 1%;
+}
