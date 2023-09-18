@@ -8,9 +8,9 @@ const Navbar = () => {
       data-bs-theme="light"
     >
       <div className="container-fluid">
-        <a className="navbar-brand text-green" href="#">
+        <link className="navbar-brand text-green" href="/">
           Entradita
-        </a>
+        </link>
         <button
           className="navbar-toggler"
           type="button"
