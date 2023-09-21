@@ -5,7 +5,7 @@ export const ItemDetail = ({ evento }) => {
         console.log('Productos seleccionados: ', count)
     }
     return (
-      <div className="card" style={{width: 18 + 'em'}}>
+      <div className="container" style={{width: 18 + 'em'}}>
       <img src={"../../" + evento.imagen} className="card-img-top" alt={evento.description}/>
       <div className="card-body">
           <h5 className="card-title">Primavera 2023</h5>
