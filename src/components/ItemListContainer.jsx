@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
-import { mFetch } from "../assets/mockFetch"
-
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase/config';
 
 
 const ItemlistContainer = () => {
@@ -13,28 +13,20 @@ const ItemlistContainer = () => {
 
 
   useEffect(() => {
-    const obtenerEventos = async () => {
-      try {
-        const response = await fetch(URL_DATA);
-        if (!response.ok) {
-          throw new Error('Error al obtener los eventos');
-        }
-        const data = await response.json(); 
-        if (categoria){
-           setEventos(data.filter((evento) => evento.categoria === categoria)); //filtro por categoría directamente en el fetch
-           }else{
-            setEventos(data);
-           }
-        
-        
-        
-      } catch (error) {
-        console.error(error);
-        console.log("Fetch mal hecho") 
-      }
-    };
 
-    obtenerEventos();
+    const eventosRef = collection(db, "eventos");
+    getDocs(eventosRef)
+      .then((resp)=> {
+        setEventos(
+        
+          resp.docs.map((doc)=> {
+            return {...doc.data(), id: doc.id}
+          })
+
+        );
+
+      })
+
   }, [categoria]) //le paso el parametro para que renderize bien
 
 
