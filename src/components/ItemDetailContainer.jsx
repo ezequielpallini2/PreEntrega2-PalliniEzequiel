@@ -1,17 +1,25 @@
 import { useEffect, useState } from "react"
-import { ItemDetail } from "./ItemDetail"
-import { mFetch } from "../assets/mockFetch"
+import  ItemDetail  from "./ItemDetail"
+import {doc, getDoc} from  'firebase/firestore';
 import { useParams } from "react-router-dom"
+import { db } from "../firebase/config";
 
 export const ItemDetailContainer = () => {
     const [evento, setevento] = useState({})
     const { id } = useParams()
 
     useEffect(()=>{
-        mFetch(Number(id))
-        .then(evento => setevento(evento))
-        .catch(err => console.log(err))
-    },[])
+        const docRef = doc(db, "eventos", id);
+        getDoc(docRef)
+          .then((resp)=> {
+            setevento(
+            {...resp.data(), id: resp.id}
+          );
+  
+        })
+  
+    }, [])
+
 
 
 
