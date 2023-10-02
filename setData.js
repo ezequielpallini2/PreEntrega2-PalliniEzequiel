@@ -1,29 +1,26 @@
-const { initializeApp } = require('firebase/app');
-const { getFirestore, collection, addDoc } = require('firebase/firestore');
-const data = require('./tu-archivo-json.json'); // Reemplaza con la ruta a tu archivo JSON
-
-// Configura la aplicación de Firebase
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc } from "firebase/firestore"
+import data from './data.json' assert { type: "json" }; 
 const firebaseConfig = {
-  apiKey: 'tu-api-key',
-  authDomain: 'tu-auth-domain',
-  projectId: 'tu-project-id',
-  storageBucket: 'tu-storage-bucket',
-  messagingSenderId: 'tu-messaging-sender-id',
-  appId: 'tu-app-id'
+  apiKey: "AIzaSyCQLHDB0a4UbJK7YHBuS8E3iRr1Z5a6Fn0",
+  authDomain: "entraditas-e9bcb.firebaseapp.com",
+  projectId: "entraditas-e9bcb",
+  storageBucket: "entraditas-e9bcb.appspot.com",
+  messagingSenderId: "692461298885",
+  appId: "1:692461298885:web:5f83c153d1f3664dbbfcac",
+  measurementId: "G-927NKJCLZX"
 };
 
 const app = initializeApp(firebaseConfig);
 
-// Obtiene una referencia a la base de datos Firestore
+
 const db = getFirestore(app);
 
-// Referencia a la colección en la que deseas agregar los documentos
-const miColeccion = collection(db, 'nombre-de-tu-coleccion'); // Reemplaza con el nombre de tu colección
+const miColeccion = collection(db, 'eventos'); 
 
-// Itera sobre los datos del JSON y agrégalos a Firestore
 data.forEach(async (item) => {
   try {
-    await addDoc(miColeccion, item); // Agrega cada elemento del JSON a Firestore
+    await addDoc(miColeccion, item); 
     console.log('Documento agregado:', item);
   } catch (error) {
     console.error('Error al agregar el documento:', error);
