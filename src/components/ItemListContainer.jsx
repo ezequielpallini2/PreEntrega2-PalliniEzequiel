@@ -7,7 +7,7 @@ import { db } from '../firebase/config';
 
 const ItemlistContainer = () => {
   const [eventos, setEventos] = useState([]);
-  const URL_DATA = 'https://64cd129fbb31a268409a5658.mockapi.io/Eventos';
+
    
   const categoria = useParams().categoria;
 
