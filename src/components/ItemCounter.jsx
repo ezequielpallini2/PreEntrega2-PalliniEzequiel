@@ -1,32 +1,18 @@
-import { useState } from "react"
+import React from 'react'
 
-const ItemCounter = ({ initial, stock, onAdd}) => {
-    const [counter, setCounter] = useState(initial)
-    const handleAdd = () =>{
-        if (counter < stock){
-            setCounter(counter+1)
-        }
-    }
-
-    const handleSub = () => {
-        if (counter > initial){
-            setCounter(counter-1)
-        }
-    }
-
-    const handleOnAdd = () => {
-        onAdd(counter)
-    }
+const ItemCounter = ( {cantidad, handleSub, handleAdd, handleAgregar} ) => {
+    
 
   return (
     <center>
         
         <button onClick={handleSub}> - </button>
         <label>
-            <strong> { counter } </strong>
+            <strong> { cantidad } </strong>
         </label>
         <button onClick={handleAdd}> + </button>
-        <button onClick={handleOnAdd}>Seleccionar cantidad</button>
+
+        <button className="agregar-al-carrito" onClick={handleAgregar}>Seleccionar cantidad</button> //ver boton en bootstrap y agregar handleAgregar
     </center>
   )
 }

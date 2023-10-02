@@ -10,9 +10,7 @@ export const Item = ({evento}) => {
                     <p className="card-text">{evento.description}</p>
                     <Link to={`/Item/${evento.id}`}>
                     <a className="ver-mas" id="{evento.id}">Ver detalles</a>
-                    </Link>
-                    <a>   </a>
-                    <a href="checkout.html" className="btn btn-primary" id="{evento.id}">Comprar</a>
+                    </Link>                   
                 </div>
      </div>
   )
