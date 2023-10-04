@@ -1,5 +1,7 @@
 import ItemCounter from "./ItemCounter.jsx"
 import { useContext, useState } from "react";
+import { CartContext } from "./CartContext";
+
 
 export const ItemDetail = ({ evento }) => {
 
@@ -13,7 +15,7 @@ export const ItemDetail = ({ evento }) => {
     }
 
     const handleSumar = () => {
-        cantidad < item.stock && setCantidad(cantidad + 1)
+        cantidad < evento.stock && setCantidad(cantidad + 1)
     }
     return (
       <div className="container" style={{width: 18 + 'em'}}>
@@ -30,7 +32,7 @@ export const ItemDetail = ({ evento }) => {
                   cantidad={cantidad}
                   handleSumar={handleSumar}
                   handleRestar={handleRestar}
-                  handleAgregar={() => { agregarAlCarrito(item, cantidad) }}
+                  handleAgregar={() => { agregarAlCarrito(evento, cantidad) }}
                 />
           </div>
           <p className="card-text">¡Quedan solo {evento.stock} entradas! </p>
