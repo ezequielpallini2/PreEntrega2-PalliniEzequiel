@@ -12,10 +12,13 @@ const ItemlistContainer = () => {
   const categoria = useParams().categoria;
 
 
-  useEffect(() => {
 
+  useEffect(() => {
+    
     const eventosRef = collection(db, "eventos");
-    getDocs(eventosRef)
+    const q = categoria ? query(eventosRef, where("categoria", "==", categoria)) : eventosRef;
+
+    getDocs(q)
       .then((resp)=> {
         setEventos(
         

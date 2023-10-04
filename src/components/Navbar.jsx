@@ -1,5 +1,5 @@
 import React from 'react';
-import Cart from './Cart';
+import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom'; 
 const Navbar = () => {
   return (
@@ -35,19 +35,11 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
-          <Cart />
+          <CartWidget />
            
-          <div className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              id="inputSearch"
-              list="inputSearch"
-              placeholder="Buscar"
-              aria-label="Search"
-            ></input>
+          
             
-          </div>
+          
         </div>
       </div>
     </nav>
