@@ -1,4 +1,4 @@
-import ItemCounter from "./ItemCounter.jsx"
+import ItemCount from "./ItemCount.jsx"
 import { useContext, useState } from "react";
 import { CartContext } from "./CartContext";
 
@@ -28,7 +28,7 @@ export const ItemDetail = ({ evento }) => {
           <div className="col">
                 {/* <ItemCounter initial={1} stock={evento.stock} onAdd={onAdd}/>  */}
           
-                <ItemCounter
+                <ItemCount
                   cantidad={cantidad}
                   handleSumar={handleSumar}
                   handleRestar={handleRestar}
