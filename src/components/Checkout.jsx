@@ -8,23 +8,23 @@ import { db } from '../firebase/config';
 const Checkout = () => {
 
     
-    const [pedidoId, setPedidoId] = useState("");
+    const [entradaId, setPedidoId] = useState("");
 
     const { carrito, precioTotal, vaciarCarrito } = useContext(CartContext);
 
     const { register, handleSubmit } = useForm();
 
     const comprar = (data) => {
-        const pedido = {
+        const entrada = {
             cliente: data,
-            productos: carrito,
+            eventos: carrito,
             total: precioTotal()
         }
-        console.log(pedido);
+        console.log(entrada);
 
-        const pedidosRef = collection(db, "pedidos");
+        const entradasRef = collection(db, "entradas");
 
-        addDoc(pedidosRef, pedido)
+        addDoc(entradasRef, entrada)
             .then((doc) => {
                 setPedidoId(doc.id);
                 vaciarCarrito();
@@ -32,11 +32,11 @@ const Checkout = () => {
 
     }
 
-    if (pedidoId) {
+    if (entradaId) {
         return (
             <div className="container">
                 <h1 className="main-title">Muchas gracias por tu compra</h1>
-                <p>Tu número de pedido es: {pedidoId}</p>
+                <p>Tu número de entrada es: {entradaId}</p>
             </div>
         )
     }

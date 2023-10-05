@@ -25,9 +25,7 @@ export const ItemDetail = ({ evento }) => {
           <p className="card-text">{evento.description}</p>
           <p className="card-text">Categoría: {evento.categoria}</p>
           <p className="card-text">${evento.price}</p>
-          <div className="col">
-                {/* <ItemCounter initial={1} stock={evento.stock} onAdd={onAdd}/>  */}
-          
+          <div className="col">          
                 <ItemCount
                   cantidad={cantidad}
                   handleSumar={handleSumar}
